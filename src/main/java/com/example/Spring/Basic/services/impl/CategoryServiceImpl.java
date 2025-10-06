@@ -1,4 +1,4 @@
-package com.example.Spring.Basic.services;
+package com.example.Spring.Basic.services.impl;
 
 import com.example.Spring.Basic.entities.Category;
 import com.example.Spring.Basic.repositories.CategoryRepository;
