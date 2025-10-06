@@ -1,21 +1,52 @@
 package com.example.Spring.Basic.services.impl;
 
-import com.example.Spring.Basic.entities.Category;
+import com.example.Spring.Basic.entities.Material;
 import com.example.Spring.Basic.repositories.CategoryRepository;
-import com.example.Spring.Basic.services.CategoryService;
-import org.springframework.http.HttpStatus;
+import com.example.Spring.Basic.repositories.MaterialRepository;
+import com.example.Spring.Basic.services.MaterialService;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @Service
-public class MaterialServiceImpl implements CategoryService {
-    private final CategoryRepository repo;
-    public MaterialServiceImpl(CategoryRepository repo) { this.repo = repo; }
+public class MaterialServiceImpl implements MaterialService {
 
-    public Category create(String nombre) { return repo.save(new Category(null, nombre)); }
-    public List<Category> getAll() { return repo.findAll(); }
-    public Category getById(Long id) {
-        return repo.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Categoría no encontrada"));
+    private final MaterialRepository materials;
+    private final CategoryRepository categories;
+
+    public MaterialServiceImpl(MaterialRepository materials, CategoryRepository categories) {
+        this.materials = materials;
+        this.categories = categories;
     }
+
+    @Override
+    public Material create(String nombre, Long categoryId, int cantidad, String estado) {
+        return null;
+    }
+
+    @Override
+    public List<Material> getAll() {
+        return List.of();
+    }
+
+    @Override
+    public List<Material> getActive() {
+        return List.of();
+    }
+
+    @Override
+    public Material getById(Long id) {
+        return null;
+    }
+
+    @Override
+    public Material updateCantidad(Long id, int nuevaCantidad) {
+        return null;
+    }
+
+    @Override
+    public void delete(Long id) {
+
+    }
+
+    // ...métodos que ya tienes, con las mismas firmas que la interfaz
 }
